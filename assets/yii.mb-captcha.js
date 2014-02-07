@@ -6,9 +6,8 @@
  *
  * @link https://github.com/softark/yii2-mb-captcha
  * @copyright Copyright (c) 2013, 2014 softark.net
- * @license https://github.com/softark/yii2-mb-captcha/blob/master/LICENSE.md
+ * @license https://github.com/softark/yii2-mb-captcha/blob/master/LICENSE
  * @author Nobuo Kihara <softark@gmail.com>
- * @since 2.0
  */
 (function ($) {
 	$.fn.yiiMbCaptcha = function (method) {
