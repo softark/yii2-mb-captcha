@@ -15,7 +15,7 @@ use yii\web\AssetBundle;
  */
 class CaptchaAsset extends AssetBundle
 {
-	public $sourcePath = dirname(__FILE__) . '/assets';
+	public $sourcePath = '@vendor/softark/yii2-mb-captcha/assets';
 	public $js = [
 		'yii.mb-captcha.js',
 	];
