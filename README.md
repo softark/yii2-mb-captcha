@@ -3,6 +3,10 @@ yii2-mb-captcha
 
 Multi-byte captcha widget for Yii framework 2.0.
 
+![Milti-byte Captcha in Action](images/mb-captcha.png "Multi-byte Captcha in Action")
+
+![Multi-byte Captcha using Chinese characters](images/mb-captcha-c.png "Multi-byte Captcha using Chinese characters")
+
 [日本語の README](README_ja.md)
 
 Description
@@ -20,12 +24,6 @@ alphabet, and vice versa.
 
 softark\mbcaptcha\Captcha must be used together with softark\mbcaptcha\CaptchaAction
 and yii\validators\CaptchaValidator to provide its feature.
-
-Captcha for Yii-framework that can render non alphabetical characters. It's an extension of CCaptcha.
-
-![Milti-byte Captcha in Action](docs/mbcaptcha.png "Multi-byte Captcha in Action")
-
-![Multi-byte Captcha using Chinese characters](docs/mbcaptcha-c.png "Multi-byte Captcha using Chinese characters")
 
 Requirements
 ------------
@@ -89,9 +87,7 @@ Properties of softark\mbcaptcha\Captcha
 `softark\mbcaptcha\Captcha` supports all the properties of `yii\captcha\Captcha` and the following ones.
 The items with **(*)** are the basic options that you may want to configure.
 
-1. **template (*)**
-
-    @var string
+1. **template (*)** @var string
 
 	The template for arranging the CAPTCHA image tag, the text input tag and the type toggling link tag.
 
@@ -102,9 +98,7 @@ The items with **(*)** are the basic options that you may want to configure.
 
 	You may omit `{link}` token if you don't want the type toggling link tag.
 
-2. **toggleLinkLabel (*)**
-
-    @var string
+2. **toggleLinkLabel (*)** @var string
 
 	The label of the type toggle link.
 
@@ -115,9 +109,7 @@ Properties of softark\mbcaptcha\CaptchaAction
 `softark\mbcaptcha\CaptchaAction` supports all the properties of `yii\captcha\CaptchaAction` and the following additional ones.
 The items with **(*)** are the basic options that you may want to configure.
 
-1. **mbFontFile (*)**
-
-    @var string
+1. **mbFontFile (*)** @var string
 
     The font to be used for multi-byte characters. Defaults to seto-mini.ttf.
 
@@ -125,9 +117,7 @@ The items with **(*)** are the basic options that you may want to configure.
 
     You have to provide an appropriate font file if you want to render your choice of characters.
 
-2. **seeds (*)**
-
-    @var string
+2. **seeds (*)** @var string
 
     The string used for generating the random word. Several characters randomly selected from this string will make up the captcha word.
 
@@ -135,35 +125,25 @@ The items with **(*)** are the basic options that you may want to configure.
 
     You may set your own. Make sure that your `mbFontFile` can render all the characters in the `seeds`.
 
-3. mbMinLength
-
-    @var integer
+3. mbMinLength @var integer
 
     The minimum length for randomly generated multi-byte character word. Defaults to 5
 
-4. mbMaxLength
-
-    @var integer
+4. mbMaxLength @var integer
 
     The maximum length for randomly generated multi-byte character word. Defaults to 5
 
-5. mbOffset
-
-    @var integer
+5. mbOffset @var integer
 
     The offset between characters. Defaults to 2.
     You can adjust this property in order to decrease or increase the readability of the multi-byte character captcha.
 
-6. fixedAngle
-
-    @var boolean
+6. fixedAngle @var boolean
 
     Whether to render the multi-byte character captcha image with a fixed angle. Defaults to false.
     You may want to set this to true if you have trouble rendering your font.
 
-7. checkSJISConversion
-
-    @var boolean
+7. checkSJISConversion @var boolean
 
     Whether to check if conversion to shift_JIS is needed. Defaults to false.
 
@@ -198,14 +178,14 @@ public function actions()
                 '广泛使用了设计的考虑主要围绕优化使用而不是组成复杂语句实际上大多' .
                 '的设计是使用友好的模式来解决实践中的问题最常用的方式是创建易于被' .
                 '人阅读和理解的代码例如使用命名来传达意思但是这很难做到',
-            'mbFontFile' => Yii::getPathOfAlias('ext.softark\mbcaptcha\Captcha') . '/gbsn00lp.ttf',
+            'mbFontFile' => Yii::getAlias('@frontend') . '/fonts/gbsn00lp.ttf',
         ],
         ...
     ];
 }
 ```
 
-Note that the sample code assumes that you have placed your choice of font file in the same directory as the extension.
+Note that the sample code assumes that you have placed your choice of font file in the 'fonts' sub-directory of your frontend directory.
 
 You have to be careful not to include the characters in `seeds` that are not supported by your font.
 

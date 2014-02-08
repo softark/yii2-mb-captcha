@@ -195,7 +195,7 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
 
 		// font defaults to seto-mini.ttf
 		if ($this->mbFontFile === null) {
-			$this->mbFontFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'seto-mini.ttf';
+			$this->mbFontFile = __DIR__ . DIRECTORY_SEPARATOR . 'seto-mini.ttf';
 		}
 
 		$encoding = 'UTF-8';
