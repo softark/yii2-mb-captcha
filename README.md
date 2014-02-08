@@ -89,20 +89,20 @@ The items with **(*)** are the basic options that you may want to configure.
 
 1. **template (*)** @var string
 
-	The template for arranging the CAPTCHA image tag, the text input tag and the type toggling link tag.
+    The template for arranging the CAPTCHA image tag, the text input tag and the type toggling link tag.
 
     It is extended to support the type toggling link tag. In this template, the token `{image}` will be replaced with the actual image tag,
     while `{input}` will be replaced with the text input tag and `{link}` will be replaced with the type toggling link tag.
 
-	Note that `{link}` must be a sibling of `{image}` in the DOM tree, otherwise the toggling link won't work.
+    Note that `{link}` must be a sibling of `{image}` in the DOM tree, otherwise the toggling link won't work.
 
-	You may omit `{link}` token if you don't want the type toggling link tag.
+    You may omit `{link}` token if you don't want the type toggling link tag.
 
 2. **toggleLinkLabel (*)** @var string
 
-	The label of the type toggle link.
+    The label of the type toggle link. Defaults to "かな/abc" ("Japanese Hirakana/lower-case alphabet").
 
-	Defaults to "かな/abc" ("Japanese Hirakana/lower-case alphabet").
+    You may want to change this label when you use non-Japanese characters.
 
 Properties of softark\mbcaptcha\CaptchaAction
 ---------------------------------------------
@@ -111,7 +111,7 @@ The items with **(*)** are the basic options that you may want to configure.
 
 1. **mbFontFile (*)** @var string
 
-    The font to be used for multi-byte characters. Defaults to seto-mini.ttf.
+    The font to be used for multi-byte characters. Defaults to `seto-mini.ttf`.
 
     Note that **the default font only supports standard ASCII and Japanese Hirakana and Katakana**.
 
@@ -194,7 +194,7 @@ History
 
 + Version 1.0.0 (2014-02-08)
     + Initial release
-    + Ported from [JCaptcha](https://github.com/softark/JCaptcha) 1.0.3.
+    + Ported from [JCaptcha](https://github.com/softark/JCaptcha) 1.0.3, which is for Yii 1.1.x.
 
 Acknowledgment
 --------------
