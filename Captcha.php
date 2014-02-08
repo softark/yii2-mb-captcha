@@ -24,24 +24,23 @@ use Yii;
  * alphabet, and vice versa.
  *
  * softark\mbcaptcha\Captcha must be used together with softark\mbcaptcha\CaptchaAction
- * and [[\yii\validators\CaptchaValidator]] to provide its feature.
+ * and [[yii\validators\CaptchaValidator]] to provide its feature.
  */
 class Captcha extends \yii\captcha\Captcha
 {
 	/**
 	 * @var string the template for arranging the CAPTCHA image tag,
-	 * the type toggling link tag and the text input tag.
-	 * In this template, the token `{image}` will be replaced with the actual image tag,
-	 * while `{link}` will be replaced with the the type toggling link tag and `{input}`
-	 * will be replaced with the text input tag.
-	 * `{link}` must be a sibling of `{image}` in the DOM tree, otherwise the toggling link won't work.
+	 * the text input tag and the type toggling link tag.
+	 * In this template, the token `{image}` will be replaced with the actual image tag, while `{input}` will be
+	 * replaced with the text input tag and `{link}` will be replaced with the the type toggling link tag.
+	 * Note that `{link}` must be a sibling of `{image}` in the DOM tree, otherwise the toggling link won't work.
 	 * You may omit `{link}` token if you don't want the type toggling link tag.
 	 */
 	public $template = '{image} {link} {input}';
 
 	/**
 	 * @var string the label of the type toggle link.
-	 * Defaults to "Japanese Kana/ABC".
+	 * Defaults to "かな/abc" ("Japanese Hirakana/lower-case alphabet").
 	 */
 	public $toggleLinkLabel = 'かな/abc';
 

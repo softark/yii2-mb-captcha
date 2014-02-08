@@ -18,7 +18,7 @@ use Yii;
  * by default, but you may use any multi-byte characters by providing the appropriate font).
  *
  * softark\mbcaptcha\CaptchaAction must be used together with softark\mbcaptcha\Captcha
- * and [[\yii\validators\CaptchaValidator]] to provide its feature.
+ * and [[yii\validators\CaptchaValidator]] to provide its feature.
  */
 class CaptchaAction extends \yii\captcha\CaptchaAction
 {
