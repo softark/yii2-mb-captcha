@@ -8,7 +8,7 @@ Multi-byte captcha widget for Yii framework 2.0.
 Description
 -----------
 
-softark\mbcaptcha\Captcha is an extension to yii\captcha\Captcha.
+**softark\mbcaptcha\Captcha** is an extension to **yii\captcha\Captcha**.
 
 While yii\captcha\Captcha renders a CAPTCHA image only with English alphabets,
 softark\mbcaptcha\Captcha can render it with multi-byte characters (Japanese Hirakana
@@ -19,7 +19,7 @@ Clicking on it will toggle the CAPTCHA type from the multi-byte character to Eng
 alphabet, and vice versa.
 
 softark\mbcaptcha\Captcha must be used together with softark\mbcaptcha\CaptchaAction
-and \yii\validators\CaptchaValidator to provide its feature.
+and yii\validators\CaptchaValidator to provide its feature.
 
 Captcha for Yii-framework that can render non alphabetical characters. It's an extension of CCaptcha.
 
@@ -92,16 +92,22 @@ The items with **(*)** are the basic options that you may want to configure.
 1. **template (*)**
 
     @var string
+
 	The template for arranging the CAPTCHA image tag, the text input tag and the type toggling link tag.
+
     It is extended to support the type toggling link tag. In this template, the token `{image}` will be replaced with the actual image tag,
     while `{input}` will be replaced with the text input tag and `{link}` will be replaced with the type toggling link tag.
+
 	Note that `{link}` must be a sibling of `{image}` in the DOM tree, otherwise the toggling link won't work.
+
 	You may omit `{link}` token if you don't want the type toggling link tag.
 
 2. **toggleLinkLabel (*)**
 
     @var string
+
 	The label of the type toggle link.
+
 	Defaults to "かな/abc" ("Japanese Hirakana/lower-case alphabet").
 
 Properties of softark\mbcaptcha\CaptchaAction
@@ -112,41 +118,53 @@ The items with **(*)** are the basic options that you may want to configure.
 1. **mbFontFile (*)**
 
     @var string
+
     The font to be used for multi-byte characters. Defaults to seto-mini.ttf.
+
     Note that **the default font only supports standard ASCII and Japanese Hirakana and Katakana**.
+
     You have to provide an appropriate font file if you want to render your choice of characters.
 
 2. **seeds (*)**
 
     @var string
-    The string used for generating the random word. Defaults to a series of Japanese Hirakana characters: "あいうえおかきくけこがぎぐげごさしすせそざじずぜぞたちつてとだぢづでどなにぬねのはひふへほはひふへほはひふへほばびぶべぼぱぴぷぺぽまみむめもやゆよらりるれろわをん". Several characters randomly selected from this string will make up the captcha word.
+
+    The string used for generating the random word. Several characters randomly selected from this string will make up the captcha word.
+
+    Defaults to a series of Japanese Hirakana characters: "あいうえおかきくけこがぎぐげごさしすせそざじずぜぞたちつてとだぢづでどなにぬねのはひふへほはひふへほはひふへほばびぶべぼぱぴぷぺぽまみむめもやゆよらりるれろわをん".
+
     You may set your own. Make sure that your `mbFontFile` can render all the characters in the `seeds`.
 
-3. **mbMinLength (*)**
+3. mbMinLength
 
     @var integer
+
     The minimum length for randomly generated multi-byte character word. Defaults to 5
 
-4. **mbMaxLength (*)**
+4. mbMaxLength
 
     @var integer
+
     The maximum length for randomly generated multi-byte character word. Defaults to 5
 
 5. mbOffset
 
     @var integer
+
     The offset between characters. Defaults to 2.
     You can adjust this property in order to decrease or increase the readability of the multi-byte character captcha.
 
 6. fixedAngle
 
     @var boolean
+
     Whether to render the multi-byte character captcha image with a fixed angle. Defaults to false.
     You may want to set this to true if you have trouble rendering your font.
 
 7. checkSJISConversion
 
     @var boolean
+
     Whether to check if conversion to shift_JIS is needed. Defaults to false.
 
 How to Customize
@@ -194,14 +212,9 @@ You have to be careful not to include the characters in `seeds` that are not sup
 History
 -------
 
-+ Version 1.0.0 (2013-03-18)
++ Version 1.0.0 (2014-02-08)
     + Initial release
-+ Version 1.0.1 (2013-03-18)
-    + Bug fix
-+ Version 1.0.2 (2013-03-19)
-    + Replaced the default font
-+ Version 1.0.3 (2013-03-23)
-    + Added imagick support, refactored the code
+    + Ported from [JCaptcha](https://github.com/softark/JCaptcha) 1.0.3.
 
 Acknowledgment
 --------------
