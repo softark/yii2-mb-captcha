@@ -1,11 +1,11 @@
 yii2-mb-captcha
 ===============
 
-Multi-byte captcha widget for Yii framework 2.0.
+Multibyte captcha widget for Yii framework 2.0.
 
-![Milti-byte Captcha in Action](images/mb-captcha.png "Multi-byte Captcha in Action")
+![Multibyte Captcha in Action](images/mb-captcha.png "Multibyte Captcha in Action")
 
-![Multi-byte Captcha using Chinese characters](images/mb-captcha-c.png "Multi-byte Captcha using Chinese characters")
+![Multibyte Captcha using Chinese characters](images/mb-captcha-c.png "Multibyte Captcha using Chinese characters")
 
 [日本語の README](README_ja.md)
 
@@ -14,16 +14,14 @@ Description
 
 **softark\mbcaptcha\Captcha** is an extension to **yii\captcha\Captcha**.
 
-While yii\captcha\Captcha renders a CAPTCHA image only with English alphabets,
-softark\mbcaptcha\Captcha can render it with multi-byte characters (Japanese Hirakana
-by default, but you may use any multi-byte characters by providing the appropriate font).
+While **yii\captcha\Captcha** renders a CAPTCHA image only with **English alphabets**,
+**softark\mbcaptcha\Captcha** can render it with **multibyte characters** ... Japanese Hirakana
+by default, but you may use any multibyte characters by providing the appropriate font.
 
-Optionally softark\mbcaptcha\Captcha may render a link next to the CAPTCHA image.
-Clicking on it will toggle the CAPTCHA type from the multi-byte character to English
-alphabet, and vice versa.
+Optionally softark\mbcaptcha\Captcha may render a link next to the CAPTCHA image which will
+enable you to toggle the CAPTCHA type from the multibyte character to English alphabet, and vice versa.
 
-softark\mbcaptcha\Captcha must be used together with softark\mbcaptcha\CaptchaAction
-and yii\validators\CaptchaValidator to provide its feature.
+**softark\mbcaptcha\Captcha** must be used together with **softark\mbcaptcha\CaptchaAction** to provide its feature.
 
 Requirements
 ------------
@@ -89,10 +87,11 @@ The items with **(*)** are the basic options that you may want to configure.
 
 1. **template (*)** @var string
 
-	The template for arranging the CAPTCHA image tag, the text input tag and the type toggling link tag.
+	The template for arranging the CAPTCHA widget. Defaults to `'{image} {link} {input}'`.
 
-	It is extended to support the type toggling link tag. In this template, the token `{image}` will be replaced with the actual image tag,
-	while `{input}` will be replaced with the text input tag and `{link}` will be replaced with the type toggling link tag.
+	This property is inherited from the parent and is extended to support the type toggling link tag.
+	In this template, the tokens `{image}`, `{link}` and `{input}` will be replaced with the actual image tag,
+	the type toggling link tag and the text input tag respectively.
 
 	Note that `{link}` must be a sibling of `{image}` in the DOM tree, otherwise the toggling link won't work.
 
@@ -100,7 +99,7 @@ The items with **(*)** are the basic options that you may want to configure.
 
 2. **toggleLinkLabel (*)** @var string
 
-	The label of the type toggle link. Defaults to "かな/abc" ("Japanese Hirakana/lower-case alphabet").
+	The label of the type toggling link. Defaults to "かな/abc" ("Japanese Hirakana/lower-case alphabet").
 
 	You may want to change this label when you use non-Japanese characters.
 
@@ -111,7 +110,7 @@ The items with **(*)** are the basic options that you may want to configure.
 
 1. **mbFontFile (*)** @var string
 
-	The font to be used for multi-byte characters. Defaults to `seto-mini.ttf`.
+	The font to be used for multibyte characters. Defaults to `seto-mini.ttf`.
 
 	Note that **the default font only supports standard ASCII and Japanese Hirakana and Katakana**.
 
@@ -127,20 +126,20 @@ The items with **(*)** are the basic options that you may want to configure.
 
 3. mbMinLength @var integer
 
-	The minimum length for randomly generated multi-byte character word. Defaults to 5
+	The minimum length for randomly generated multibyte character word. Defaults to 5
 
 4. mbMaxLength @var integer
 
-	The maximum length for randomly generated multi-byte character word. Defaults to 5
+	The maximum length for randomly generated multibyte character word. Defaults to 5
 
 5. mbOffset @var integer
 
 	The offset between characters. Defaults to 2.
-	You can adjust this property in order to decrease or increase the readability of the multi-byte character captcha.
+	You can adjust this property in order to decrease or increase the readability of the multibyte character captcha.
 
 6. fixedAngle @var boolean
 
-	Whether to render the multi-byte character captcha image with a fixed angle. Defaults to false.
+	Whether to render the multibyte character captcha image with a fixed angle. Defaults to false.
 	You may want to set this to true if you have trouble rendering your font.
 
 7. checkSJISConversion @var boolean

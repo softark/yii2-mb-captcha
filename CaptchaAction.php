@@ -14,8 +14,8 @@ use Yii;
  * softark\mbcaptcha\CaptchaAction is an extension to [[yii\captcha\CaptchaAction]].
  *
  * While [[yii\captcha\CaptchaAction]] renders a CAPTCHA image only with English alphabets,
- * softark\mbcaptcha\CaptchaAction can render it with multi-byte characters (Japanese Hirakana
- * by default, but you may use any multi-byte characters by providing the appropriate font).
+ * softark\mbcaptcha\CaptchaAction can render it with multibyte characters (Japanese Hirakana
+ * by default, but you may use any multibyte characters by providing the appropriate font).
  *
  * softark\mbcaptcha\CaptchaAction must be used together with softark\mbcaptcha\Captcha
  * and [[yii\validators\CaptchaValidator]] to provide its feature.
@@ -23,7 +23,7 @@ use Yii;
 class CaptchaAction extends \yii\captcha\CaptchaAction
 {
 	/**
-	 * The name of the GET parameter indicating whether the CAPTCHA type (multi-byte character/alphabet) should be toggled.
+	 * The name of the GET parameter indicating whether the CAPTCHA type (multibyte character/alphabet) should be toggled.
 	 */
 	const TOGGLE_GET_VAR = 'toggle';
 
@@ -44,12 +44,12 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
 	public $mbOffset = 2;
 
 	/**
-	 * @var boolean whether to use multi-byte characters. Defaults to true.
+	 * @var boolean whether to use multibyte characters. Defaults to true.
 	 */
 	public $useMbChars = true;
 
 	/**
-	 * @var string multi-byte font file. Defaults to seto-mini.ttf, a subset of
+	 * @var string multibyte font file. Defaults to seto-mini.ttf, a subset of
 	 * setofont.ttf (http://nonty.net/item/font/setofont.php) created and shared
 	 * by 瀬戸のぞみ (Nozomi Seto). Special thanks to Nozomi for the wonderful font.
 	 * Note that seto-mini.ttf supports only ASCII, Hirakana and Katakana.

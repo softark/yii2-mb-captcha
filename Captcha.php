@@ -16,11 +16,11 @@ use Yii;
  * softark\mbcaptcha\Captcha is an extension to [[yii\captcha\Captcha]].
  *
  * While [[yii\captcha\Captcha]] renders a CAPTCHA image only with English alphabets,
- * softark\mbcaptcha\Captcha can render it with multi-byte characters (Japanese Hirakana
- * by default, but you may use any multi-byte characters by providing the appropriate font).
+ * softark\mbcaptcha\Captcha can render it with multibyte characters (Japanese Hirakana
+ * by default, but you may use any multibyte characters by providing the appropriate font).
  *
  * Optionally softark\mbcaptcha\Captcha may render a link next to the CAPTCHA image.
- * Clicking on it will toggle the CAPTCHA type from the multi-byte character to English
+ * Clicking on it will toggle the CAPTCHA type from the multibyte character to English
  * alphabet, and vice versa.
  *
  * softark\mbcaptcha\Captcha must be used together with softark\mbcaptcha\CaptchaAction

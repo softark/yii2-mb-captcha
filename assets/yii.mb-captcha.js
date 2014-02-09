@@ -1,5 +1,5 @@
 /**
- * Yii Multi-byte Captcha widget.
+ * Yii Multibyte Captcha widget.
  *
  * This is the JavaScript used by the softark\mbcaptcha\Captcha widget, which is
  * an extension to yii\captcha\Captcha.

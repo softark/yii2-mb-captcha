@@ -3,9 +3,9 @@ yii2-mb-captcha
 
 アルファベット以外の文字(たとえば平仮名や漢字)を表示できる Yii framework 2.0 用の CAPTCHA です。
 
-![Milti-byte Captcha in Action](images/mb-captcha.png "Multi-byte Captcha in Action")
+![Multibyte Captcha in Action](images/mb-captcha.png "Multibyte Captcha in Action")
 
-![Multi-byte Captcha using Chinese characters](images/mb-captcha-c.png "Multi-byte Captcha using Chinese characters")
+![Multibyte Captcha using Chinese characters](images/mb-captcha-c.png "Multibyte Captcha using Chinese characters")
 
 [README in English](README.md)
 
@@ -14,16 +14,15 @@ yii2-mb-captcha
 
 **softark\mbcaptcha\Captcha** は **yii\captcha\Captcha** を拡張したものです。
 
-yii\captcha\Captcha は英語のアルファベットだけで CAPTCHA 画像を表示しますが、
-softark\mbcaptcha\Captcha はマルチバイト文字を表示することが出来ます（既定では日本語のひらがなを表示しますが、
-適切なフォントを用意すればどのような文字でも表示可能です）。
+**yii\captcha\Captcha** は**英語のアルファベット**だけで CAPTCHA 画像を表示しますが、
+**softark\mbcaptcha\Captcha** は**マルチバイト文字**を表示することが出来ます ... 既定では日本語のひらがなを表示しますが、
+適切なフォントを用意すればどのような文字でも表示可能です。
 
 オプションで、CAPTCHA 画像のとなりに、CAPTCHA のタイプを切り替えるためのリンクを表示することが出来ます。
 このリンクをクリックすると、CAPTCHA の文字がマルチバイト文字から英語アルファベットへ、また、英語アルファベットから
 マルチバイト文字へと切り替ります。
 
-softark\mbcaptcha\Captcha は、その機能を提供するために、softark\mbcaptcha\CaptchaAction および
-yii\validators\CaptchaValidator と共に使用する必要があります。
+**softark\mbcaptcha\Captcha** は、その機能を提供するために、**softark\mbcaptcha\CaptchaAction** と共に使用される必要があります。
 
 動作条件
 -------
@@ -89,9 +88,10 @@ softark\mbcaptcha\Captcha のプロパティ
 
 1. **template (*)** @var string
 
-	CAPTCHA の画像、テキスト入力フィールド、そして、タイプ変更リンクを配置するためのテンプレート。
+	CAPTCHA ウィジェットを配置するためのテンプレート。既定値は `'{image} {link} {input}'`
 
-	タイプ変更リンクをサポートするために拡張されている。このテンプレートの `{image}` は実際の画像に、`{input}` はテキスト入力フィールドに、
+	このプロパティは親クラスから継承されており、タイプ変更リンクをサポートするために拡張されている。
+	このテンプレートの `{image}` は実際の画像に、`{input}` はテキスト入力フィールドに、
 	そして、`{link}` はタイプ変更リンクに置き換えられる。
 
 	`{link}` は `{image}` と DOM ツリー上で兄弟関係の要素でなければならない。そうでない場合、タイプ変更リンクは動作しない。
