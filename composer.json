@@ -1,7 +1,7 @@
 {
 	"name": "softark/yii2-mb-captcha",
-	"description": "Multi-byte CAPTCHA for the Yii framework",
-	"keywords": ["yii", "captcha", "multi-byte"],
+	"description": "Yii2 Multibyte CAPTCHA",
+	"keywords": ["yii", "captcha", "multibyte"],
 	"type": "yii2-extension",
 	"license": "BSD-3-Clause",
 	"support": {
