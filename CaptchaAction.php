@@ -245,7 +245,7 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
 
 		$length = mb_strlen($code, $encoding);
 		$box = imagettfbbox(30, 0, $this->mbFontFile, $code);
-		$w = $box[4] - $box[0] + $this->offset * ($length - 1);
+		$w = $box[4] - $box[0] + $this->mbOffset * ($length - 1);
 		$h = $box[1] - $box[5];
 		if ($h <= 0) {
 			$h = $w / $length;
