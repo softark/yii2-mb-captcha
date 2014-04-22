@@ -192,9 +192,12 @@ public function actions()
 履歴
 ----
 
-+ Version 1.0.0 (2014-02-08)
++ Version 0.9.0 (2014-04-22)
+	+ Yii 2.0 beta のための更新
++ Version 0.8.0 (2014-02-08)
 	+ 最初のリリース
 	+ Yii 1.1.x 用の [JCaptcha](https://github.com/softark/JCaptcha) 1.0.3. から移植
+	+ Yii 2.0 alpha 上で開発
 
 謝辞
 ----

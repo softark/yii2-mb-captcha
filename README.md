@@ -191,9 +191,12 @@ You have to be careful not to include the characters in `seeds` that are not sup
 History
 -------
 
-+ Version 1.0.0 (2014-02-08)
++ Version 0.9.0 (2014-04-22)
+	+ Update for Yii 2.0 beta
++ Version 0.8.0 (2014-02-08)
 	+ Initial release
 	+ Ported from [JCaptcha](https://github.com/softark/JCaptcha) 1.0.3, which is for Yii 1.1.x.
+	+ Developed under Yii 2.0 alpha
 
 Acknowledgment
 --------------
