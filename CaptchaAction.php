@@ -9,6 +9,7 @@
 namespace softark\mbcaptcha;
 
 use Yii;
+use yii\helpers\Url;
 
 /**
  * softark\mbcaptcha\CaptchaAction is an extension to [[yii\captcha\CaptchaAction]].
@@ -87,20 +88,20 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
 			$this->useMbChars = false;
 		}
 
-		if (isset($_GET[self::REFRESH_GET_VAR]) || isset($_GET[self::TOGGLE_GET_VAR])) {
-			if (isset($_GET[self::TOGGLE_GET_VAR])) {
+		$refresh = Yii::$app->request->getQueryParam(self::REFRESH_GET_VAR);
+		$toggle = Yii::$app->request->getQueryParam(self::TOGGLE_GET_VAR);
+		if ($refresh !== null || $toggle !== null ) {
+			if ($toggle !== null) {
 				$this->useMbChars = !$this->useMbChars;
 			}
 			// AJAX request for regenerating code
 			$code = $this->getVerifyCode(true);
-			/** @var \yii\web\Controller $controller */
-			$controller = $this->controller;
 			return json_encode([
 				'hash1' => $this->generateValidationHash($code),
 				'hash2' => $this->generateValidationHash(strtolower($code)),
 				// we add a random 'v' parameter so that FireFox can refresh the image
 				// when src attribute of image tag is changed
-				'url' => $controller->createUrl($this->id, ['v' => uniqid()]),
+				'url' => Url::to([$this->id, 'v' => uniqid()]),
 			]);
 		} else {
 			$this->setHttpHeaders();

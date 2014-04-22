@@ -8,9 +8,10 @@
 
 namespace softark\mbcaptcha;
 
+use Yii;
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\helpers\Json;
-use Yii;
 
 /**
  * softark\mbcaptcha\Captcha is an extension to [[yii\captcha\Captcha]].
@@ -63,8 +64,13 @@ class Captcha extends \yii\captcha\Captcha
 		} else {
 			$input = Html::textInput($this->name, $this->value, $this->options);
 		}
-		$url = Yii::$app->getUrlManager()->createUrl($this->captchaAction, ['v' => uniqid()]);
-		$image = Html::img($url, $this->imageOptions);
+		$route = $this->captchaAction;
+		if (is_array($route)) {
+			$route['v'] = uniqid();
+		} else {
+			$route = [$route, 'v' => uniqid()];
+		}
+		$image = Html::img($route, $this->imageOptions);
 		$link = Html::a($this->toggleLinkLabel, '#');
 		echo strtr($this->template, [
 			'{input}' => $input,
@@ -93,11 +99,11 @@ class Captcha extends \yii\captcha\Captcha
 	protected function getClientOptions()
 	{
 		$options = [
-			'refreshUrl' => Html::url(['/' . $this->captchaAction, CaptchaAction::REFRESH_GET_VAR => 1]),
-			'toggleUrl' => Html::url(['/' . $this->captchaAction, CaptchaAction::TOGGLE_GET_VAR => 1]),
+			'refreshUrl' => Url::to(['/' . $this->captchaAction, CaptchaAction::REFRESH_GET_VAR => 1]),
+			'toggleUrl' => Url::to(['/' . $this->captchaAction, CaptchaAction::TOGGLE_GET_VAR => 1]),
 			'hashKey' => "yiiCaptcha/{$this->captchaAction}",
 			// We have to use 'yiiCaptcha' instead of 'yiiMbCaptcha'
-			// because yii\captcha\Captcha uses 'yiiCaptcha' for 'hashKey'.
+			// because yii\captcha\CaptchaValidator uses 'yiiCaptcha' for 'hashKey'.
 		];
 		return $options;
 	}
