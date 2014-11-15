@@ -33,53 +33,53 @@ yii2-mb-captcha
 --------
 1. `softark/yii2-mb-captcha` を `composer.json` に追加し、Composer でプロジェクトを構成します。
 
-	```php
-	"require": {
-		"php": ">=5.4.0",
-		"yiisoft/yii2": "*",
-		"yiisoft/yii2-bootstrap": "*",
-		"yiisoft/yii2-swiftmailer": "*",
-		"softark/yii2-mb-captcha": "dev-master"
-	},
-	```
+    ```php
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
+        "softark/yii2-mb-captcha": "dev-master"
+    },
+    ```
 
 2. ビューで `yii\captcha\Captcha` の代りに `softark\mbcaptcha\Captcha` を使います。
 
-	```php
-	/* use yii\captcha\Captcha; */
-	use softark\mbcaptcha\Captcha;
-	...
-	<?=
-		$form->field($model, 'verifyCode')->widget(Captcha::className(), [
-			'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
-		]) ?>
-	```
+    ```php
+    /* use yii\captcha\Captcha; */
+    use softark\mbcaptcha\Captcha;
+    ...
+    <?=
+        $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+            'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+        ]) ?>
+    ```
 
-	オプションで `{link}` トークンをテンプレートに含めたい場合があるかも知れません。
-	```php
-	/* use yii\captcha\Captcha; */
-	use softark\mbcaptcha\Captcha;
-	<?=
-		$form->field($model, 'verifyCode')->widget(Captcha::className(), [
-			'template' => '<div class="row"><div class="col-lg-3">{image} {link}</div><div class="col-lg-6">{input}</div></div>',
-		]) ?>
-	```
+    オプションで `{link}` トークンをテンプレートに含めたい場合があるかも知れません。
+    ```php
+    /* use yii\captcha\Captcha; */
+    use softark\mbcaptcha\Captcha;
+    <?=
+        $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+            'template' => '<div class="row"><div class="col-lg-3">{image} {link}</div><div class="col-lg-6">{input}</div></div>',
+        ]) ?>
+    ```
 
 3. コントローラで `yii\captcha\CaptchaAction` の代りに `softark\mbcaptcha\CaptchaAction` を使います。
 
-	```php
-	public function actions()
-	{
-		return [
-			'captcha' => [
-				/* 'class' => 'yii\captcha\CaptchaAction', */
-				'class' => 'softark\mbcaptcha\CaptchaAction',
-				'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-			],
-			...
-		];
-	}
-	```
+    ```php
+    public function actions()
+    {
+        return [
+            'captcha' => [
+                /* 'class' => 'yii\captcha\CaptchaAction', */
+                'class' => 'softark\mbcaptcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+            ...
+        ];
+    }
+    ```
 
 softark\mbcaptcha\Captcha のプロパティ
 -------------------------------------
@@ -88,19 +88,19 @@ softark\mbcaptcha\Captcha のプロパティ
 
 1. **template (*)** @var string
 
-	CAPTCHA ウィジェットを配置するためのテンプレート。既定値は `'{image} {link} {input}'`
+    CAPTCHA ウィジェットを配置するためのテンプレート。既定値は `'{image} {link} {input}'`
 
-	このプロパティは親クラスから継承されており、タイプ変更リンクをサポートするために拡張されている。
-	このテンプレートの `{image}` は実際の画像に、`{input}` はテキスト入力フィールドに、
-	そして、`{link}` はタイプ変更リンクに置き換えられる。
+    このプロパティは親クラスから継承されており、タイプ変更リンクをサポートするために拡張されている。
+    このテンプレートの `{image}` は実際の画像に、`{input}` はテキスト入力フィールドに、
+    そして、`{link}` はタイプ変更リンクに置き換えられる。
 
-	`{link}` は `{image}` と DOM ツリー上で兄弟関係の要素でなければならない。そうでない場合、タイプ変更リンクは動作しない。
+    `{link}` は `{image}` と DOM ツリー上で兄弟関係の要素でなければならない。そうでない場合、タイプ変更リンクは動作しない。
 
-	タイプ変更リンクが不要な場合は、テンプレートから `{link}` トークンを省略すると良い。
+    タイプ変更リンクが不要な場合は、テンプレートから `{link}` トークンを省略すると良い。
 
 2. **toggleLinkLabel (*)** @var string
 
-	タイプ変更リンクのラベル。既定値は "かな/abc"。漢字や非日本語を使う場合は、適切に書き換えること。
+    タイプ変更リンクのラベル。既定値は "かな/abc"。漢字や非日本語を使う場合は、適切に書き換えること。
 
 softark\mbcaptcha\CaptchaAction のプロパティ
 -------------------------------------------
@@ -109,43 +109,43 @@ softark\mbcaptcha\CaptchaAction のプロパティ
 
 1. **mbFontFile (*)** @var string
 
-	マルチバイト文字を表示するためのフォントファイル。既定値は seto-mini.ttf。
+    マルチバイト文字を表示するためのフォントファイル。既定値は seto-mini.ttf。
 
-	**既定のフォントは英数字と平仮名、片仮名しかサポートしていない** ことに注意。
+    **既定のフォントは英数字と平仮名、片仮名しかサポートしていない** ことに注意。
 
-	漢字などを表示したい場合は、別途、適切なフォントファイルが必要になる。
+    漢字などを表示したい場合は、別途、適切なフォントファイルが必要になる。
 
 2. **seeds (*)** @var string
 
-	ランダムな単語を生成するための種文字列。
+    ランダムな単語を生成するための種文字列。
 
-	既定値は、"あいうえおかきくけこがぎぐげごさしすせそざじずぜぞたちつてとだぢづでどなにぬねのはひふへほはひふへほはひふへほばびぶべぼぱぴぷぺぽまみむめもやゆよらりるれろわをん" という文字列。
-	この中からランダムに文字を選んで CAPTCHA の単語を生成する。
+    既定値は、"あいうえおかきくけこがぎぐげごさしすせそざじずぜぞたちつてとだぢづでどなにぬねのはひふへほはひふへほはひふへほばびぶべぼぱぴぷぺぽまみむめもやゆよらりるれろわをん" という文字列。
+    この中からランダムに文字を選んで CAPTCHA の単語を生成する。
 
-	好みに合わせて変更することができる。ただし、`mbFontFile` がサポートしている文字だけを使用する必要がある。
+    好みに合わせて変更することができる。ただし、`mbFontFile` がサポートしている文字だけを使用する必要がある。
 
 3. mbMinLength @var integer
 
-	ランダムに生成されるマルチバイト文字列の最小文字数。既定値は 5
+    ランダムに生成されるマルチバイト文字列の最小文字数。既定値は 5
 
 4. mbMaxLength @var integer
 
-	ランダムに生成されるマルチバイト文字列の最大文字数。既定値は 5
+    ランダムに生成されるマルチバイト文字列の最大文字数。既定値は 5
 
 5. mbOffset @var integer
 
-	マルチバイト文字間のオフセット。既定値は 2。
-	このプロパティを調整して、文字の読み取りやすさを増減することができる。
+    マルチバイト文字間のオフセット。既定値は 2。
+    このプロパティを調整して、文字の読み取りやすさを増減することができる。
 
 6. fixedAngle @var boolean
 
-	文字にランダムな回転を与えずに表示するか否か。既定値は false。
-	動作環境や使用するフォントによっては、 true に設定する必要があるかも知れない。
+    文字にランダムな回転を与えずに表示するか否か。既定値は false。
+    動作環境や使用するフォントによっては、 true に設定する必要があるかも知れない。
 
 7. checkSJISConversion @var boolean
 
-	true の場合、UTF-8 から Shift_JIS への変換が必要か否かをチェックして、それに従う。
-	既定値は false で、UTF-8 のまま文字を描画する。動作環境によっては、 true に設定する必要があるかも知れない。
+    true の場合、UTF-8 から Shift_JIS への変換が必要か否かをチェックして、それに従う。
+    既定値は false で、UTF-8 のまま文字を描画する。動作環境によっては、 true に設定する必要があるかも知れない。
 
 カスタマイズ
 -----------
@@ -159,10 +159,10 @@ softark\mbcaptcha\CaptchaAction のプロパティ
 use softark\mbcaptcha\Captcha;
 ...
 <?=
-	$form->field($model, 'verifyCode')->widget(Captcha::className(), [
-		'template' => '<div class="row"><div class="col-lg-3">{image} {link}</div><div class="col-lg-6">{input}</div></div>',
-		'toggleLinkLabel' => '漢字/abc',
-	]) ?>
+    $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+        'template' => '<div class="row"><div class="col-lg-3">{image} {link}</div><div class="col-lg-6">{input}</div></div>',
+        'toggleLinkLabel' => '漢字/abc',
+    ]) ?>
 ```
 
 コントローラ:
@@ -170,18 +170,18 @@ use softark\mbcaptcha\Captcha;
 ```php
 public function actions()
 {
-	return [
-		'captcha' => [
-			'class' => 'softark\mbcaptcha\CaptchaAction',
-			'seeds' => '几乎所有的应用程序都是建立在数据库之上虽然可以非常灵活的' .
-				'操作数据库但有些时候一些设计的选择可以使它更便于使用首先应用程序' .
-				'广泛使用了设计的考虑主要围绕优化使用而不是组成复杂语句实际上大多' .
-				'的设计是使用友好的模式来解决实践中的问题最常用的方式是创建易于被' .
-				'人阅读和理解的代码例如使用命名来传达意思但是这很难做到',
-			'mbFontFile' => '@frontend/fonts/gbsn00lp.ttf',
-		],
-		...
-	];
+    return [
+        'captcha' => [
+            'class' => 'softark\mbcaptcha\CaptchaAction',
+            'seeds' => '几乎所有的应用程序都是建立在数据库之上虽然可以非常灵活的' .
+                '操作数据库但有些时候一些设计的选择可以使它更便于使用首先应用程序' .
+                '广泛使用了设计的考虑主要围绕优化使用而不是组成复杂语句实际上大多' .
+                '的设计是使用友好的模式来解决实践中的问题最常用的方式是创建易于被' .
+                '人阅读和理解的代码例如使用命名来传达意思但是这很难做到',
+            'mbFontFile' => '@frontend/fonts/gbsn00lp.ttf',
+        ],
+        ...
+    ];
 }
 ```
 
@@ -192,12 +192,15 @@ public function actions()
 履歴
 ----
 
++ Version 1.0.0 (2014-11-15)
+    + Yii 2.0.0 で動作を確認
+    + コードスタイルをコアに合せる (スペースでインデント)
 + Version 0.9.0 (2014-04-22)
-	+ Yii 2.0 beta のための更新
+    + Yii 2.0 beta のための更新
 + Version 0.8.0 (2014-02-08)
-	+ 最初のリリース
-	+ Yii 1.1.x 用の [JCaptcha](https://github.com/softark/JCaptcha) 1.0.3. から移植
-	+ Yii 2.0 alpha 上で開発
+    + 最初のリリース
+    + Yii 1.1.x 用の [JCaptcha](https://github.com/softark/JCaptcha) 1.0.3. から移植
+    + Yii 2.0 alpha 上で開発
 
 謝辞
 ----
