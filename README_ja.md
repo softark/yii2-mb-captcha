@@ -204,4 +204,4 @@ public function actions()
 
 謝辞
 ----
-[瀬戸フォント setofont.ttf](http://nonty.net/item/font/setofont.php) をシェアして下さっている[瀬戸のぞみさん](http://nonty.net/about/) に感謝の意を表します。既定のフォント "seto-mini.ttf" は、setofont.ttf のサブセットです。
+[setofont.ttf](http://setofont.sourceforge.jp/) をシェアして下さっている作者に感謝の意を表します。既定のフォント "seto-mini.ttf" は、setofont.ttf のサブセットです。
