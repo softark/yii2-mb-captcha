@@ -203,5 +203,5 @@ History
 
 Acknowledgment
 --------------
-Many thanks to [瀬戸のぞみ (Nozomi Seto)](http://nonty.net/about/) for the wonderful work of [瀬戸フォント (setofont.ttf)](http://nonty.net/item/font/setofont.php). The default font "seto-mini.ttf" is a subset of setofont.ttf.
+Many thanks to the author of the wonderful work of [setofont.ttf](http://setofont.sourceforge.jp/). The default font "seto-mini.ttf" is a subset of setofont.ttf.
 
