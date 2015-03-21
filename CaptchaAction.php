@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/softark/yii2-mb-captcha
- * @copyright Copyright (c) 2013, 2014 softark.net
+ * @copyright Copyright (c) 2013 - 2015 Nobuo Kihara
  * @license https://github.com/softark/yii2-mb-captcha/blob/master/LICENSE
  * @author Nobuo Kihara <softark@gmail.com>
  */
@@ -51,8 +51,8 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
 
     /**
      * @var string multibyte font file. Defaults to seto-mini.ttf, a subset of
-     * setofont.ttf (http://nonty.net/item/font/setofont.php) created and shared
-     * by 瀬戸のぞみ (Nozomi Seto). Special thanks to Nozomi for the wonderful font.
+     * setofont.ttf (http://setofont.sourceforge.jp/) created and shared
+     * by Nozomi Seto.. Special thanks to Nozomi Seto for the wonderful font.
      * Note that seto-mini.ttf supports only ASCII, Hirakana and Katakana.
      */
     public $mbFontFile;
@@ -114,7 +114,7 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
     /**
      * Generates a hash code that can be used for client side validation.
      * @param string $code the CAPTCHA code
-     * @return string a hash code generated from the CAPTCHA code
+     * @return int a hash code generated from the CAPTCHA code
      */
     public function generateValidationHash($code)
     {
@@ -224,7 +224,7 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
      * Renders the CAPTCHA image based on the code using GD library.
      * @param string $code the verification code
      * @param string $encoding character encoding
-     * @return string image contents
+     * @return string image contents in PNG format.
      */
     protected function mbRenderImageByGD($code, $encoding)
     {
@@ -286,7 +286,7 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
      * Renders the CAPTCHA image based on the code using ImageMagick library.
      * @param string $code the verification code
      * @param string $encoding character encoding
-     * @return \Imagick image instance. Can be used as string. In this case it will contain image contents.
+     * @return string image contents in PNG format.
      */
     protected function mbRenderImageByImagick($code, $encoding)
     {

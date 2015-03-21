@@ -5,7 +5,7 @@
  * an extension to yii\captcha\Captcha.
  *
  * @link https://github.com/softark/yii2-mb-captcha
- * @copyright Copyright (c) 2013, 2014 softark.net
+ * @copyright Copyright (c) 2013 - 2015 Nobuo Kihara
  * @license https://github.com/softark/yii2-mb-captcha/blob/master/LICENSE
  * @author Nobuo Kihara <softark@gmail.com>
  */

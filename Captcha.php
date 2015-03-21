@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/softark/yii2-mb-captcha
- * @copyright Copyright (c) 2013, 2014 softark.net
+ * @copyright Copyright (c) 2013 - 2015 Nobuo Kihara
  * @license https://github.com/softark/yii2-mb-captcha/blob/master/LICENSE
  * @author Nobuo Kihara <softark@gmail.com>
  */
@@ -98,10 +98,18 @@ class Captcha extends \yii\captcha\Captcha
      */
     protected function getClientOptions()
     {
+        $routeRef = $routeTgl = $this->captchaAction;
+        if (is_array($routeRef)) {
+            $routeRef[CaptchaAction::REFRESH_GET_VAR] = 1;
+            $routeTgl[CaptchaAction::TOGGLE_GET_VAR] = 1;
+        } else {
+            $routeRef = [$routeRef, CaptchaAction::REFRESH_GET_VAR => 1];
+            $routeTgl = [$routeTgl, CaptchaAction::TOGGLE_GET_VAR => 1];
+        }
         $options = [
-            'refreshUrl' => Url::to(['/' . $this->captchaAction, CaptchaAction::REFRESH_GET_VAR => 1]),
-            'toggleUrl' => Url::to(['/' . $this->captchaAction, CaptchaAction::TOGGLE_GET_VAR => 1]),
-            'hashKey' => "yiiCaptcha/{$this->captchaAction}",
+            'refreshUrl' => Url::toRoute($routeRef),
+            'toggleUrl' => Url::toRoute($routeTgl),
+            'hashKey' => "yiiCaptcha/{$routeRef[0]}",
             // We have to use 'yiiCaptcha' instead of 'yiiMbCaptcha'
             // because yii\captcha\CaptchaValidator uses 'yiiCaptcha' for 'hashKey'.
         ];
