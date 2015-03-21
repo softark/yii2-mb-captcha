@@ -106,6 +106,7 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
             ];
         } else {
             $this->setHttpHeaders();
+            Yii::$app->response->format = Response::FORMAT_RAW;
             return $this->renderImage($this->getVerifyCode());
         }
     }
