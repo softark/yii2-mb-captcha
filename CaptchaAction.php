@@ -96,13 +96,14 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
             }
             // AJAX request for regenerating code
             $code = $this->getVerifyCode(true);
-            return json_encode([
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return [
                 'hash1' => $this->generateValidationHash($code),
                 'hash2' => $this->generateValidationHash(strtolower($code)),
                 // we add a random 'v' parameter so that FireFox can refresh the image
                 // when src attribute of image tag is changed
                 'url' => Url::to([$this->id, 'v' => uniqid()]),
-            ]);
+            ];
         } else {
             $this->setHttpHeaders();
             return $this->renderImage($this->getVerifyCode());
