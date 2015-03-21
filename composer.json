@@ -1,28 +1,28 @@
 {
-    "name": "softark/yii2-mb-captcha",
-    "description": "Yii2 Multibyte CAPTCHA",
-    "keywords": [
-        "yii2",
-        "captcha",
-        "multibyte"
-    ],
-    "type": "yii2-extension",
-    "license": "BSD-3-Clause",
-    "support": {
-        "issues": "https://github.com/softark/yii2-mb-captcha/issues",
-        "source": "https://github.com/softark/yii2-mb-captcha"
-    },
-    "authors": [
-        {
-            "name": "Nobuo Kihara",
-            "email": "softark@gmail.com",
-            "homepage": "http://softark.net"
-        }
-    ],
-    "require": {
-        "yiisoft/yii2": "*"
-    },
-    "autoload": {
-        "psr-4": {"softark\\mbcaptcha\\": ""}
+  "name": "softark/yii2-mb-captcha",
+  "description": "Yii2 Multibyte CAPTCHA",
+  "keywords": [
+    "yii2",
+    "captcha",
+    "multibyte"
+  ],
+  "type": "yii2-extension",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/softark/yii2-mb-captcha/issues",
+    "source": "https://github.com/softark/yii2-mb-captcha"
+  },
+  "authors": [
+    {
+      "name": "Nobuo Kihara",
+      "email": "softark@gmail.com",
+      "homepage": "http://softark.net"
     }
+  ],
+  "require": {
+    "yiisoft/yii2": "*"
+  },
+  "autoload": {
+    "psr-4": {"softark\\mbcaptcha\\": ""}
+  }
 }
