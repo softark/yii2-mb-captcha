@@ -331,6 +331,6 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
         }
 
         $image->setImageFormat('png');
-        return $image;
+        return $image->getImageBlob();
     }
 }
