@@ -122,7 +122,7 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
         for ($i = mb_strlen($code); $i >= 0; --$i) {
             $char = mb_substr($code, $i, 1, 'UTF-8');
             $char = mb_convert_encoding($char, 'UTF-32BE', 'UTF-8');
-            $hash += hexdec(bin2hex($char));
+            $hash += (int)hexdec(bin2hex($char));
         }
         return $hash;
     }
