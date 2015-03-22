@@ -160,28 +160,44 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
             return parent::generateVerifyCode();
         }
 
+        $seeds = $this->getCaptchaSeeds();
+        $len = mb_strlen($seeds, 'UTF-8');
+
+        for ($code = '', $i = 0; $i < $this->getCaptchaLength(); ++$i) {
+            $code .= mb_substr($this->seeds, mt_rand(0, $len - 1), 1, 'UTF-8');
+        }
+
+        return $code;
+    }
+
+    /**
+     * @return int length of the CAPTCHA string
+     */
+    private function getCaptchaLength()
+    {
         if ($this->mbMinLength < 3) {
             $this->mbMinLength = 3;
         }
         if ($this->mbMaxLength > 20) {
             $this->mbMaxLength = 20;
         }
-        if ($this->mbMinLength > $this->mbMaxLength) {
-            $this->mbMaxLength = $this->mbMinLength;
+        if ($this->mbMinLength >= $this->mbMaxLength) {
+            return $this->mbMaxLength;
+        } else {
+            return mt_rand($this->mbMinLength, $this->mbMaxLength);
         }
-        $length = mt_rand($this->mbMinLength, $this->mbMaxLength);
+    }
 
-        if ($this->seeds === null) {
-            $this->seeds = 'あいうえおかきくけこがぎぐげごさしすせそざじずぜぞたちつてとだぢづでどなにぬねのはひふへほはひふへほはひふへほばびぶべぼぱぴぷぺぽまみむめもやゆよらりるれろわをん';
+    /**
+     * @return string the seeds of the CAPTCHA string
+     */
+    private function getCaptchaSeeds()
+    {
+        if ($this->seeds !== null) {
+            return $this->seeds;
+        } else {
+            return 'あいうえおかきくけこがぎぐげごさしすせそざじずぜぞたちつてとだぢづでどなにぬねのはひふへほはひふへほはひふへほばびぶべぼぱぴぷぺぽまみむめもやゆよらりるれろわをん';
         }
-        $len = mb_strlen($this->seeds, 'UTF-8');
-
-        $code = '';
-        for ($i = 0; $i < $length; ++$i) {
-            $code .= mb_substr($this->seeds, mt_rand(0, $len - 1), 1, 'UTF-8');
-        }
-
-        return $code;
     }
 
     /**
