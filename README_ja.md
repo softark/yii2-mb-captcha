@@ -142,11 +142,6 @@ softark\mbcaptcha\CaptchaAction のプロパティ
     文字にランダムな回転を与えずに表示するか否か。既定値は false。
     動作環境や使用するフォントによっては、 true に設定する必要があるかも知れない。
 
-7. checkSJISConversion @var boolean
-
-    true の場合、UTF-8 から Shift_JIS への変換が必要か否かをチェックして、それに従う。
-    既定値は false で、UTF-8 のまま文字を描画する。動作環境によっては、 true に設定する必要があるかも知れない。
-
 カスタマイズ
 -----------
 

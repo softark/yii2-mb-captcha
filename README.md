@@ -142,10 +142,6 @@ The items with **(*)** are the basic options that you may want to configure.
     Whether to render the multibyte character captcha image with a fixed angle. Defaults to false.
     You may want to set this to true if you have trouble rendering your font.
 
-7. checkSJISConversion @var boolean
-
-    Whether to check if conversion to shift_JIS is needed. Defaults to false.
-
 How to Customize
 ----------------
 

@@ -9,6 +9,7 @@
 namespace softark\mbcaptcha;
 
 use Yii;
+use yii\web\Response;
 use yii\helpers\Url;
 
 /**
@@ -68,12 +69,6 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
      * Defaults to a series of Japanese Hirakana characters. You may want to set your own.
      */
     public $seeds;
-
-    /**
-     * @var boolean whether to check if conversion to shift_JIS is needed
-     * Defaults to false.
-     */
-    public $checkSJISConversion = false;
 
     /**
      * Runs the action.
@@ -164,7 +159,7 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
         $len = mb_strlen($seeds, 'UTF-8');
 
         for ($code = '', $i = 0; $i < $this->getCaptchaLength(); ++$i) {
-            $code .= mb_substr($this->seeds, mt_rand(0, $len - 1), 1, 'UTF-8');
+            $code .= mb_substr($seeds, mt_rand(0, $len - 1), 1, 'UTF-8');
         }
 
         return $code;
@@ -219,17 +214,13 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
 
         $encoding = 'UTF-8';
 
-        // check if conversion to Shift_JIS is needed
-        if ($this->checkSJISConversion) {
+        if (Captcha::checkRequirements() === 'gd') {
+            // check if conversion to Shift_JIS is needed
             $gd_info = gd_info();
-            $must_use_sjis = $gd_info['JIS-mapped Japanese Font Support'];
-            if ($must_use_sjis) {
+            if ($gd_info['JIS-mapped Japanese Font Support']) {
                 $code = mb_convert_encoding($code, 'SJIS', 'UTF-8');
                 $encoding = 'SJIS';
             }
-        }
-
-        if (Captcha::checkRequirements() === 'gd') {
             return $this->mbRenderImageByGD($code, $encoding);
         } else {
             return $this->mbRenderImageByImagick($code, $encoding);
