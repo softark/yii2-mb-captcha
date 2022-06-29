@@ -25,7 +25,7 @@ enable you to toggle the CAPTCHA type from the multibyte character to English al
 
 Requirements
 ------------
-+ Yii Version 2.0.0 or later
++ Yii Version 2.0.44 or later
 + PHP GD + FreeType extension or ImageMagick extension
 
 Usage
@@ -35,7 +35,7 @@ Usage
     ```php
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "*",
+        "yiisoft/yii2": "~2.0.44",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "softark/yii2-mb-captcha": "dev-master"

@@ -26,7 +26,7 @@ yii2-mb-captcha
 
 動作条件
 -------
-+ Yii Version 2.0.0 以降
++ Yii Version 2.0.44 以降
 + PHP GD + FreeType 拡張 または ImageMagick 拡張
 
 使用方法
@@ -36,7 +36,7 @@ yii2-mb-captcha
     ```php
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "*",
+        "yiisoft/yii2": "~2.0.44",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "softark/yii2-mb-captcha": "dev-master"

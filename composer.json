@@ -20,7 +20,7 @@
     }
   ],
   "require": {
-    "yiisoft/yii2": "^2.0.38"
+    "yiisoft/yii2": "~2.0.44"
   },
   "autoload": {
     "psr-4": {"softark\\mbcaptcha\\": ""}

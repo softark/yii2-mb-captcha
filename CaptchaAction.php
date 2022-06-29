@@ -114,10 +114,10 @@ class CaptchaAction extends \yii\captcha\CaptchaAction
     public function generateValidationHash($code)
     {
         $hash = 0;
-        for ($i = mb_strlen($code); $i >= 0; --$i) {
+        for ($i = mb_strlen($code) - 1; $i >= 0; --$i) {
             $char = mb_substr($code, $i, 1, 'UTF-8');
             $char = mb_convert_encoding($char, 'UTF-32BE', 'UTF-8');
-            $hash += (int)hexdec(bin2hex($char));
+            $hash += (int)hexdec(bin2hex($char)) << $i;
         }
         return $hash;
     }
